@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>sky.png</title>
+  <title>Geschmacksauswahl</title>
   <style>
-    body {
-      background-image: url('sky.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    h1 {
-      color: #fff;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    label {
-      color: #fff;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    input[type="number"] {
-      width: 40px;
-      padding: 5px;
-    }
+    /* Dein CSS-Stil hier */
   </style>
 </head>
 <body>
-  <h1>Herzlichen Glückwunsch, Sie haben sich für <span id="flavor"></span> entschieden!</h1>
-  <label>Anzahl:
-    <input type="number" id="quantity" min="1">
-  </label>
+  <div class="container">
+    <h1>Herzlichen Glückwunsch, Sie haben sich für <span id="flavor"></span> entschieden!</h1>
+    <label>Anzahl:
+      <input type="number" id="quantity" min="1">
+    </label>
+    <div id="stats">
+      <h2>Statistik:</h2>
+      <p>Geschmack 1: <span id="flavor1Count">0</span></p>
+      <p>Geschmack 2: <span id="flavor2Count">0</span></p>
+      <p>Geschmack 3: <span id="flavor3Count">0</span></p>
+    </div>
+  </div>
 
   <script>
     let urlParams = new URLSearchParams(window.location.search);
     let flavor = urlParams.get('flavor');
     document.getElementById('flavor').textContent = `Geschmack ${flavor}`;
+    
+    let flavorCounts = {
+      flavor1: 0,
+      flavor2: 0,
+      flavor3: 0
+    };
+
+    // Funktion, um die Statistik zu aktualisieren
+    function updateStats() {
+      document.getElementById('flavor1Count').textContent = flavorCounts.flavor1;
+      document.getElementById('flavor2Count').textContent = flavorCounts.flavor2;
+      document.getElementById('flavor3Count').textContent = flavorCounts.flavor3;
+    }
+
+    // Ereignislistener für die Optionen
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.option').forEach(function(option) {
+        option.addEventListener('click', function(event) {
+          const selectedFlavor = this.dataset.flavor;
+          flavorCounts[selectedFlavor]++;
+          updateStats();
+        });
+      });
+    });
   </script>
 </body>
 </html>
