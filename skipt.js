@@ -11,6 +11,6 @@ document.getElementById('userCount').textContent = userCount;
 let percentagesDiv = document.getElementById('percentages');
 for (let flavor in flavorPercentages) {
   let p = document.createElement('p');
-  p.textContent = `Geschmack ${flavor}: ${flavorPercentages[flavor]}%`;
+  p.textContent = `Taste ${flavor}: ${flavorPercentages[flavor]}%`;
   percentagesDiv.appendChild(p);
 }
