@@ -1,0 +1,47 @@
+body {
+  background-image: url('sky.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+}
+
+.option {
+  padding: 20px;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid black;
+  color: black;
+}
+
+.flavor1 {
+  background-color: red;
+}
+
+.flavor2 {
+  background-color: blue;
+}
+
+.flavor3 {
+  background-color: green;
+}
