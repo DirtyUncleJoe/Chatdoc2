@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>sky.png</title>
+  <style>
+    body {
+      background-image: url('sky.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #fff;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    label {
+      color: #fff;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="number"] {
+      width: 40px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Herzlichen Glückwunsch, Sie haben sich für <span id="flavor"></span> entschieden!</h1>
+  <label>Anzahl:
+    <input type="number" id="quantity" min="1">
+  </label>
+
+  <script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let flavor = urlParams.get('flavor');
+    document.getElementById('flavor').textContent = `Geschmack ${flavor}`;
+  </script>
+</body>
+</html>
