@@ -9,10 +9,17 @@ header {
   font-weight: bold;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .options {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
 }
 
 .option {
@@ -22,6 +29,7 @@ header {
   font-weight: bold;
   text-align: center;
   border: 2px solid black;
+  color: black;
 }
 
 .flavor1 {
