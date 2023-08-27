@@ -5,6 +5,7 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;  /* Zentriert das Hintergrundbild */
   height: 100vh;
 }
 
