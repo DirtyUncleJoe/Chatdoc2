@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>sky.png</title>
+  <title>Anmeldeseite</title>
   <style>
     body {
       background-image: url('sky.jpg');
@@ -34,20 +34,34 @@
       margin-top: 10px;
     }
 
-    input[type="number"] {
-      width: 40px;
-      padding: 5px;
+    input[type="text"] {
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      padding: 8px 20px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <h1>Thank you for taking part!
- 
-
-  <script>
-    let urlParams = new URLSearchParams(window.location.search);
-    let flavor = urlParams.get('flavor');
-    document.getElementById('flavor').textContent = `Geschmack ${flavor}`;
-  </script>
+  <h1>Welcome!</h1>
+  <form action="/login" method="post">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <input type="submit" value="Sign In">
+  </form>
 </body>
 </html>
