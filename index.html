@@ -3,6 +3,26 @@
 <head>
   <title>Wezo</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Hier kommt der CSS-Code aus deinem ersten Beispiel */
+    body {
+      background-image: url('sky.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Weitere Stile hier */
+  </style>
 </head>
 <body>
   <header>
@@ -10,19 +30,18 @@
   </header>
   
   <main>
-    <div class="options">
-      <a href="choice.html?flavor=1" class="option flavor1">Peach</a>
-      <a href="choice.html?flavor=2" class="option flavor2">Classic</a>
-      <a href="choice.html?flavor=3" class="option flavor3">Blueberry</a>
-    </div>
-    <div id="percentages"></div>
+    <!-- Hier ist nur der Anmeldebereich -->
+    <form action="/login" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br>
+      <input type="submit" value="Sign In">
+    </form>
   </main>
   
-   <footer>
+  <footer>
     <span id="userCount"></span>
   </footer>
   
   <script src="script.js"></script>
 </body>
 </html>
-
