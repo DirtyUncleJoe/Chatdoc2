@@ -1,16 +1,37 @@
-// Dummy user count and flavor percentages. In a real application, these would come from a server.
-let userCount = 1234;
-let flavorPercentages = {
-  1: 40,
-  2: 30,
-  3: 30
-};
+// JavaScript für die Interaktivität der Webseite
 
-document.getElementById('userCount').textContent = userCount;
+// Funktion, um Daten an den Server zu senden (zum Beispiel, um sich anzumelden)
+function login() {
+  const username = document.getElementById('username').value; // Hole den Benutzernamen aus dem Formular
+  fetch('/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `username=${username}`, // Sende den Benutzernamen an den Server
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data); // Zeige die Server-Antwort in der Konsole an
+    // Hier könntest du die Benutzeroberfläche aktualisieren, um den erfolgreichen Login anzuzeigen
+  })
+  .catch(error => console.error('Error:', error));
+}
 
-let percentagesDiv = document.getElementById('percentages');
-for (let flavor in flavorPercentages) {
-  let p = document.createElement('p');
-  p.textContent = `Flavor ${flavor}: ${flavorPercentages[flavor]}%`;
-  percentagesDiv.appendChild(p);
+// Funktion, um eine Chat-Nachricht an den Server zu senden und die Antwort zu erhalten
+function sendMessage() {
+  const message = /* Hier würde der Inhalt der Chat-Nachricht aus dem Chatfenster geholt */;
+  fetch('/api/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `message=${message}`, // Sende die Chat-Nachricht an den Server
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data); // Zeige die Server-Antwort in der Konsole an
+    // Hier könntest du die Chat-Ansicht aktualisieren, um die Antwort anzuzeigen
+  })
+  .catch(error => console.error('Error:', error));
 }
